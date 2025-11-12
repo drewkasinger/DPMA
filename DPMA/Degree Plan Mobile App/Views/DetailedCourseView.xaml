@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Views.DetailedCourseView"
+             Title="DetailedCourseView">
+    <VerticalStackLayout>
+        <Border Stroke="Black"
+    StrokeThickness="1"
+    StrokeShape="RoundRectangle 10"
+    Margin="10"
+    Padding="5">
+            <VerticalStackLayout>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".33*" />
+                        <ColumnDefinition Width=".33*" />
+                        <ColumnDefinition Width=".33*" />
+                    </Grid.ColumnDefinitions>
+                    <DatePicker x:Name="coursestart"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Grid.Column="0"/>
+                    <Entry x:Name="coursename"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" 
+               Grid.Column="1"/>
+                    <DatePicker x:Name="courseend"
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Grid.Column="2"/>
+                </Grid>
+                <ScrollView HeightRequest="550">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Stroke="Black"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            Margin="10"
+                            Padding="5">
+                            <VerticalStackLayout>
+                                <HorizontalStackLayout Margin="5" Grid.Row="0">
+                                    <Picker x:Name="statuspicker"
+                                            VerticalOptions="Center"
+                                            WidthRequest="130">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>Not Started</x:String>
+                                                <x:String>In Progress</x:String>
+                                                <x:String>Completed</x:String>
+                                                <x:String>Failed to Complete</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <HorizontalStackLayout Margin="50, 0, 0, 0">
+                                        <Label Text="Course Due" VerticalOptions="Center" />
+                                        <DatePicker x:Name="coursedue" VerticalOptions="Center" />
+                                    </HorizontalStackLayout>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Grid.Row="1" VerticalOptions="Center" Spacing="88" Margin="15">
+                                    <VerticalStackLayout>
+                                        <Label Text="Start Notification" />
+                                        <DatePicker x:Name="startnotification" Margin="-7"/>
+                                    </VerticalStackLayout>
+                                    <VerticalStackLayout>
+                                        <Label Text="End Notification" />
+                                        <DatePicker x:Name="endnotification" Margin="-7" />
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+
+                                <Button Text="Assessments" Clicked="OnClicked_Assessments" Grid.Row="2" HorizontalOptions="Center" Margin="20"/>
+                                <VerticalStackLayout Grid.Row="3" Margin="15">
+                                    <Border Stroke="Black"
+                                                StrokeThickness="1"
+                                                StrokeShape="RoundRectangle 10"
+                                                Margin="10"
+                                                Padding="5">
+                                        <Editor x:Name="optionalnotes"
+                                            Placeholder="Type your course notes here."
+                                            HorizontalOptions="Center"
+                                            AutoSize="TextChanges"
+                                            TextChanged="OnEditor_TextChanged"
+                                            WidthRequest="300" />
+                                    </Border>
+                                    <Button Text="Share"  Clicked="OnClicked_Share"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Row="4">
+                                    <Entry x:Name="instructorname"
+                                           Placeholder="Instructor Name"
+                                           FontSize="15"/>
+                                    <Entry x:Name="instructorphone" 
+                                           Placeholder="Instructor Phone Number"
+                                           FontSize="15"/>
+                                    <Entry x:Name="instructoremail" 
+                                           Placeholder="Instructor Email"
+                                           FontSize="15"/>
+                                </VerticalStackLayout>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </ScrollView>
+            </VerticalStackLayout>
+        </Border>
+        <CollectionView>
+            <CollectionView.Footer>
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="100">
+                    <Button Text="Save Course" Clicked="OnClicked_SaveCourse" />
+                    <Button Text="Delete Course" Clicked="OnClicked_DeleteCourse" />
+                </HorizontalStackLayout>
+            </CollectionView.Footer>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

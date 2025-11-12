@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Views.AssessmentView"
+             Title="AssessmentView">
+    <VerticalStackLayout>
+        <Border Stroke="Black"
+        StrokeThickness="1"
+        StrokeShape="RoundRectangle 10"
+        Margin="10"
+        Padding="5">
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="OA" Grid.Column="0" VerticalOptions="Center" Margin="3" FontSize="16"/>
+                    <Label x:Name="newoa" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="3" FontSize="16"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <Button Text="Edit OA" HorizontalOptions="Center" Margin="5" Clicked="OnClick_EditOA"/>
+        <Border Stroke="Black"
+StrokeThickness="1"
+StrokeShape="RoundRectangle 10"
+Margin="10"
+Padding="5">
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="PA" Grid.Column="0" VerticalOptions="Center" Margin="3" FontSize="16"/>
+                    <Label x:Name="newpa" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="3" FontSize="16"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <Button Text="Edit PA" HorizontalOptions="Center" Margin="5" Clicked="OnClick_EditPA"/>
+    </VerticalStackLayout>
+</ContentPage>

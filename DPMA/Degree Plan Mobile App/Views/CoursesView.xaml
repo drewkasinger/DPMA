@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Views.CoursesView"
+             Title="CoursesView">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Stroke="Black"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 10"
+            Margin="10"
+            Padding="5">
+            <VerticalStackLayout>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".33*" />
+                        <ColumnDefinition Width=".33*" />
+                        <ColumnDefinition Width=".33*" />
+                    </Grid.ColumnDefinitions>
+                    <DatePicker x:Name="termstart"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                Grid.Column="0"/>
+                    <Entry x:Name="termname"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" 
+                           Grid.Column="1"/>
+                    <DatePicker x:Name="termend"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                Grid.Column="2"/>
+                </Grid>
+                <ScrollView Grid.Row="1" HeightRequest="550" VerticalScrollBarVisibility="Always">
+                    <VerticalStackLayout>
+                        <CollectionView x:Name="courses" ItemsLayout="VerticalList" SelectionMode="Single" EmptyView="No Courses have been added to this term." SelectionChanged="OpenDetails_SelectionChanged">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Stroke="Black"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 10"
+                            Margin="10"
+                            Padding="5">
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width=".25*" />
+                                                <ColumnDefinition Width=".25*" />
+                                                <ColumnDefinition Width=".25*" />
+                                                <ColumnDefinition Width=".25*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Label Text="{Binding statusPicker}"
+                                                   HorizontalOptions="Start"
+                                                   VerticalOptions="Center"
+                                                   Grid.ColumnSpan="2"
+                                                   Grid.Row="0" 
+                                                   Margin="5"/>
+                                            <Label Text="{Binding courseName}" 
+                                       TextDecorations="Underline" 
+                                       HorizontalOptions="Center" 
+                                       VerticalOptions="Center" 
+                                       Grid.Column="2"
+                                       Grid.ColumnSpan="2" 
+                                       Grid.Row="0" 
+                                                   Margin="5"/>
+
+
+                                            <Label Text="Start Date" 
+                                       HorizontalOptions="Center" 
+                                       VerticalOptions="Center" 
+                                       Grid.Column="0" 
+                                       Grid.Row="1"
+                                                           Margin="5"/>
+                                            <Label Text="{Binding courseStart}" 
+                                            HorizontalOptions="Center" 
+                                            VerticalOptions="Center" 
+                                            Grid.Column="1" 
+                                            Grid.Row="1" 
+                                                   Margin="5"/>
+
+                                            <Label Text="End Date" 
+                                           HorizontalOptions="Center" 
+                                           VerticalOptions="Center" 
+                                           Grid.Column="2" 
+                                           Grid.Row="1" 
+                                                   Margin="5"/>
+                                            <Label Text="{Binding courseEnd}" 
+                                            HorizontalOptions="Center" 
+                                            VerticalOptions="Center" 
+                                            Grid.Column="3" 
+                                            Grid.Row="1"
+                                                   Margin="5"/>
+
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </VerticalStackLayout>
+        </Border>
+        <CollectionView Grid.Row="2">
+            <CollectionView.Footer>
+                <VerticalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="50">
+                        <Button Text="Add Course" Clicked="OnClick_AddCourse" />
+                        <Button Text="Save Term" Clicked="OnClick_SaveTerm"/>
+                        <Button Text="Delete Term" Clicked="OnClick_DeleteTerm"/>
+                    </HorizontalStackLayout>
+                    <Label Text="Click on a Course to edit it." HorizontalOptions="Center" Padding="5"/>
+                </VerticalStackLayout>
+            </CollectionView.Footer>
+        </CollectionView>
+    </Grid>
+</ContentPage>

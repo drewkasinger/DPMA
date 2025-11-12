@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Views.AddTermView"
+             Title="AddTermView">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Start" Spacing="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".5*"/>
+                <ColumnDefinition Width=".5*"/>
+            </Grid.ColumnDefinitions>
+
+            <Entry Placeholder="Enter Term name here"
+                   x:Name="newtermname"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"/>
+            
+            <Label Text="Term Start"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+            
+            <DatePicker 
+                        x:Name="newstartdate"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        VerticalOptions="Center"/>
+            
+            <Label Text="Term End"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"/>
+
+            <DatePicker 
+                        x:Name="newenddate"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        VerticalOptions="Center"/>
+        </Grid>
+        <CollectionView>
+            <CollectionView.Footer>
+                <Button Text="Add Term" Clicked="OnClick_AddTerm"/>
+            </CollectionView.Footer>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>
