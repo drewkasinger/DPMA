@@ -24,8 +24,15 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
+<<<<<<< HEAD
 _nugetassetsfilehash=b5beb4f77138edcf7a2df43b77c13b0eeb599ded4645102cc2ca721fef524f98
 typemapkind=strings-asm
 androidmanifestplaceholders=
 projectfullpath=c:\users\kasin\onedrive\desktop\wgu\capstone d424\d424\degree plan mobile app\degree plan mobile app\degree plan mobile app.csproj
+=======
+_nugetassetsfilehash=59e1622897dc54526cc77f9c5ada6f86551ecccc1b2965de36fdb41b2265347b
+typemapkind=strings-asm
+androidmanifestplaceholders=
+projectfullpath=c:\users\kasin\onedrive\desktop\wgu\capstone d424\d424\dpma\degree plan mobile app\degree plan mobile app.csproj
+>>>>>>> DPMA Project
 androidusedesignerassembly=true
