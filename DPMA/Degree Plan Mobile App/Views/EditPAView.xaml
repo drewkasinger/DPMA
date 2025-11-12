@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="C971.Views.EditPAView"
+             Title="EditPAView">
+    <VerticalStackLayout>
+        <Border Stroke="Black"
+    StrokeThickness="1"
+    StrokeShape="RoundRectangle 10"
+    Margin="10"
+    Padding="5">
+            <VerticalStackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="PA" Grid.Column="0" VerticalOptions="Center" Margin="3" FontSize="16"/>
+                    <Entry x:Name="newassessment" Placeholder="Assessment name" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Margin="3" FontSize="16"/>
+                </Grid>
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*" />
+                        <ColumnDefinition Width=".5*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Start Notification" Grid.Column="0" HorizontalOptions="Start" Margin="-5"/>
+                    <DatePicker x:Name="startnotification" Grid.Column="0" HorizontalOptions="Start" />
+                    <Label Text="End Notification" Grid.Column="1" HorizontalOptions="End" Margin="-5"/>
+                    <DatePicker x:Name="endnotification" HorizontalOptions="End" Grid.Column="1"/>
+                </Grid>
+            </VerticalStackLayout>
+        </Border>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="80">
+            <Button Text="Save Assessment" Clicked="OnClick_SaveAssessment"/>
+            <Button Text="Delete Assessment" Clicked="OnClick_DeleteAssessment" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

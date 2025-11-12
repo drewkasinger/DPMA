@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Degree_Plan_Mobile_App.Views.ReportsView"
+             Title="ReportsView">
+    <ScrollView Grid.Row="1" HeightRequest="550" VerticalScrollBarVisibility="Always">
+        <VerticalStackLayout>
+            <CollectionView x:Name="courses" ItemsLayout="VerticalList" SelectionMode="Single" EmptyView="No Courses start between the dates provided." SelectionChanged="OpenDetails_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Stroke="Black"
+            StrokeThickness="1"
+            StrokeShape="RoundRectangle 10"
+            Margin="10"
+            Padding="5">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".25*" />
+                                    <ColumnDefinition Width=".25*" />
+                                    <ColumnDefinition Width=".25*" />
+                                    <ColumnDefinition Width=".25*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Label Text="{Binding statusPicker}"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="0" 
+                                   Margin="5"/>
+                                <Label Text="{Binding courseName}" 
+                       TextDecorations="Underline" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       Grid.Column="2"
+                       Grid.ColumnSpan="2" 
+                       Grid.Row="0" 
+                                   Margin="5"/>
+
+
+                                <Label Text="Start Date" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       Grid.Column="0" 
+                       Grid.Row="1"
+                                           Margin="5"/>
+                                <Label Text="{Binding courseStart}"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center" 
+                            Grid.Column="1" 
+                            Grid.Row="1" 
+                                   Margin="5"/>
+
+                                <Label Text="End Date" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center" 
+                           Grid.Column="2" 
+                           Grid.Row="1" 
+                                   Margin="5"/>
+                                <Label Text="{Binding courseEnd}"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center" 
+                            Grid.Column="3" 
+                            Grid.Row="1"
+                                   Margin="5"/>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
